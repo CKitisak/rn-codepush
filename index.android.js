@@ -1,9 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
 import {
   AppRegistry,
@@ -11,8 +5,16 @@ import {
   Text,
   View
 } from 'react-native';
+import codePush from 'react-native-code-push';
 
 export default class rnCodePush extends Component {
+  componentDidMount() {
+    codePush.sync({
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
